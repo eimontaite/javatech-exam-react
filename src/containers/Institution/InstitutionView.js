@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import Aux from '../../hoc/Aux';
@@ -66,6 +66,7 @@ class InstitutionView extends Component {
                 condition={book.condition}
                 quantity={book.quantity}
                 deleteHandler={this.deleteHandler}
+                basicList={true}
             />
         )
     }
@@ -86,11 +87,12 @@ class InstitutionView extends Component {
 
     render() {
         return (
-            <Aux>
-                <div>{this.state.institution}</div>
-                <Link to={'/institution/:institutionId/add/book'}><Button bsSize="lg" bsStyle="info">Priskirti knygą</Button></Link>
-                <div><BooksTableListComponent books={this.state.books} /></div>
-            </Aux>)
+        <Aux>
+            <div>{this.state.institution}</div>
+            {/* blocked updates will be the end of me. commenting this out, will think about it later */}
+            {/* <Link to={'/institution/' + this.props.institutionId + '/add/book'}><Button bsSize="lg" bsStyle="info">Priskirti knygą</Button></Link> */}
+            <div><BooksTableListComponent books={this.state.books} /></div>
+        </Aux>)
     }
 }
 

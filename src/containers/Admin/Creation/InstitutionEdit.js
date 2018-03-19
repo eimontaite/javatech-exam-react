@@ -46,8 +46,7 @@ class InstitutionEdit extends Component {
         }
 
       render(){
-          return(
-          <div><InstitutionCreationForm onSubmit={this.submitHandler} fieldHandler={this.fieldHandler} />
+          return (<div><InstitutionCreationForm onSubmit={this.submitHandler} fieldHandler={this.fieldHandler} />
           </div>)
       }
 }
