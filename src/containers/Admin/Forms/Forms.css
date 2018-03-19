@@ -1,0 +1,32 @@
+.formField {
+    width: 70%;
+    align-content: center;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+    width: 75%;
+    margin: 15px auto auto auto;
+}
+
+.formPaper {
+    width: 570px;
+    margin: 30px auto;
+    padding: 10px 15px 40px 15px;
+}
+form {
+    margin: 40px auto;
+}
+
+.buttonBlock {
+    text-align: center;
+}
+
+.bookCreationForm {
+    width: 300px;
+    margin: 30px auto;
+    padding: 10px 15px 40px 15px;
+}
+
+

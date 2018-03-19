@@ -1,0 +1,31 @@
+/* .modal-container {
+    position: relative;
+  }
+  .modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
+  } */
+
+  /* .modal-body {
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+} */
+  /* .modal-header,
+.modal-footer {
+    height: 50px;
+}
+
+.modal-body,
+.modal-footer {
+    position: absolute;
+}
+
+.modal-body {
+    bottom: 50px;
+    top: 50px;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    bottom: 0;
+} */
+
