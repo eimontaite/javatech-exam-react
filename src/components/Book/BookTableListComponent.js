@@ -6,7 +6,7 @@ const BooksTableListComponent = (props) => {
         <Table condensed hover responsive>
             <thead>
                 <tr>
-                    <th>Nuotrauka</th>
+                    <th>Viršelis</th>
                     <th>Pavadinimas</th>
                     <th>Autorius</th>
                     <th>Kaina</th>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import InstitutionCreationForm  from '../Forms/InstitutionCreationForm';
+import InstitutionCreationForm from '../Forms/InstitutionCreationForm';
 
 class InstitutionEdit extends Component {
         institutionId = this.props.institutionId
@@ -12,17 +12,16 @@ class InstitutionEdit extends Component {
             libraryBookStoreType:'ADULT',
             bookRentalType:'OLD_BOOKS',
             bookArchiveType:'PRIVATE',
-
             institutionType:'BOOKSTORE'
         }
       
-      fieldHandler = (e) =>{
+      fieldHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
         console.log("Input field name: " + e.target.name)
         console.log("Input field value: " + e.target.value)
       }
 
-      submitHandler = (e) =>{
+      submitHandler = (e) => {
         e.preventDefault();
         axios.put('http://localhost:8080/api/institution/'+ this.institutionId, {
             institutionType: this.state.institutionType,
@@ -46,7 +45,9 @@ class InstitutionEdit extends Component {
         }
 
       render(){
-          return(<div><InstitutionCreationForm onSubmit={this.submitHandler} fieldHandler={this.fieldHandler} /></div>)
+          return(
+          <div><InstitutionCreationForm onSubmit={this.submitHandler} fieldHandler={this.fieldHandler} />
+          </div>)
       }
 }
 

@@ -28,11 +28,11 @@ class InstitutionListContainer extends Component {
                 console.log(erorr)
             })
     }
-    removeHandler = (id) => {
-        axios.delete('http://localhost:8080/api/institution/' + id)
+    removeHandler = (institutionId) => {
+        axios.delete('http://localhost:8080/api/institution/' + institutionId)
             .then((response) => {
                 console.log(response.status)
-                this.getAllInstitution()
+                this.getAllInstitutions()
             })
             .catch((erorr) => {
                 console.log(erorr)

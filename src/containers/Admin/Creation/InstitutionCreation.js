@@ -6,7 +6,6 @@ import InstitutionCreationForm from '../Forms/InstitutionCreationForm';
 import './Creation.css';
 
 class InstitutionCreation extends Component {
-    // train_id = this.props.params.train_id
     state = {
         title: '',
         city: '',
@@ -25,7 +24,7 @@ class InstitutionCreation extends Component {
     }
     submitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8080/api/institution', {
+        const institutionParams = {
             institutionType: this.state.institutionType,
             title: this.state.title,
             city: this.state.city,
@@ -33,8 +32,9 @@ class InstitutionCreation extends Component {
             category: this.state.category,
             libraryBookstoreType: this.state.libraryBookstoreType,
             rentalType: this.state.rentalType,
-            archiveType: this.archiveType
-        })
+            archiveType: this.state.archiveType
+        }
+        axios.post('http://localhost:8080/api/institution', institutionParams)
             .then((response) => {
                 console.log(response.status)
                 this.setState({

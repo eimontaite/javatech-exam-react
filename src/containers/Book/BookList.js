@@ -37,8 +37,6 @@ class BookList extends Component {
             .catch((erorr) => {
                 console.log(erorr)
             })
-
-
     }
 
     composeBooks = (book, index) => {
