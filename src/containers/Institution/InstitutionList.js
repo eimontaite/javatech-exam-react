@@ -28,8 +28,8 @@ class InstitutionListContainer extends Component {
                 console.log(erorr)
             })
     }
-    removeHandler = (inst_id) => {
-        axios.delete('http://localhost:8080/api/institution/' + inst_id)
+    removeHandler = (id) => {
+        axios.delete('http://localhost:8080/api/institution/' + id)
             .then((response) => {
                 console.log(response.status)
                 this.getAllInstitution()
@@ -48,9 +48,9 @@ class InstitutionListContainer extends Component {
                 city={inst.city}
                 image={inst.image}
                 category={inst.category}
-                libraryBookStoreType={inst.libraryBookStoreType}
-                bookRentalType={inst.bookRentalType}
-                bookArchiveType={inst.bookArchiveType}
+                libraryBookstoreType={inst.libraryBookstoreType}
+                rentalType={inst.rentalType}
+                archiveType={inst.archiveType}
                 removeHandler={this.removeHandler}
             />)
     }

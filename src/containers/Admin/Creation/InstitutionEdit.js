@@ -3,7 +3,7 @@ import axios from 'axios';
 import InstitutionCreationForm  from '../Forms/InstitutionCreationForm';
 
 class InstitutionEdit extends Component {
-        institutionId = this.props.params.institutionId
+        institutionId = this.props.institutionId
         state = {
             title:'',
             city:'',
@@ -24,15 +24,15 @@ class InstitutionEdit extends Component {
 
       submitHandler = (e) =>{
         e.preventDefault();
-        axios.put('http://localhost:8080/api/institution/'+this.institutionId, {
-            institutionType:this.state.institutionType,
-            title:this.state.title,
-            city:this.state.city,
-            image:this.state.image,
-            category:this.state.category,
-            libraryBookStoreType:this.state.libraryBookstoreType,
-            bookRentalType:this.state.rentalType,
-            bookArchiveType:this.archiveType
+        axios.put('http://localhost:8080/api/institution/'+ this.institutionId, {
+            institutionType: this.state.institutionType,
+            title: this.state.title,
+            city: this.state.city,
+            image: this.state.image,
+            category: this.state.category,
+            libraryBookstoreType: this.state.libraryBookstoreType,
+            rentalType: this.state.rentalType,
+            archiveType: this.archiveType
         })
         .then((response)=>{
             console.log(response.status)

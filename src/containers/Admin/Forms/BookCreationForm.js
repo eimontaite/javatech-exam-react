@@ -7,11 +7,11 @@ import './Forms.css';
 
 const BookCreationForm = props => {
 
-    const {handleSubmit, pristine, submitting, reset} = props;
+    const {pristine, submitting, reset} = props;
 
     return (
         <Aux>
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={props.submit} className="form">
                 <Paper className='bookCreationForm' zDepth={2}>
                     <TextField name="author" autoFocus={true} hintText="Autorius" value={props.author} onChange={props.fieldHandler}/>
                     <br/>
@@ -25,7 +25,7 @@ const BookCreationForm = props => {
                     <TextField name="condition" hintText="Būklė" value={props.condition} onChange={props.fieldHandler}/>  
                 </Paper>
                 <div className='buttonBlock'>
-                    <Button id='bookCreationSubmit' bsStyle="success" bsSize='lg' type="submit" disabled={pristine || submitting}>Registruoti</Button>
+                    <Button id='bookCreationSubmit' bsStyle="success" bsSize='lg' type="submit">Registruoti</Button>
                     {' '}
                     <Button id='bookCreationCancel' bsStyle="danger" bsSize='lg' type="button" disabled={submitting} onClick={props.back}>Atšaukti</Button>
                 </div>

@@ -9,11 +9,9 @@ import './Forms.css';
 
 const InstitutionCreationForm = props => {
 
-  const { handleSubmit, pristine, submitting, reset } = props;
-
   return (
     <Aux>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={props.submit} className="form">
         <Paper className='formPaper' zDepth={2}>
           <div className="form-group">
             <label className="control-label col-sm-4">Pavadinimas:</label>
@@ -58,8 +56,8 @@ const InstitutionCreationForm = props => {
             </select>
           </div>
         </Paper>
-        <div className='buttonBlock'>
-          <Button id='institutionCreationSubmit' bsStyle="success" bsSize='lg' type="submit" disabled={pristine || submitting}>Registruoti</Button>
+        <div className='buttonBlock form-group'>
+          <Button id='institutionCreationSubmit' bsStyle="success" bsSize='lg' type="submit">Registruoti</Button>
           {' '}
           <Button id='institutionCreationCancel' bsStyle="danger" bsSize='lg' type="button" disabled={submitting} onClick={props.back}>Atšaukti</Button>
         </div>

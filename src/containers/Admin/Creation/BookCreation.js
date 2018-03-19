@@ -18,7 +18,7 @@ state = {
 
       submitHandler = (e) =>{
         e.preventDefault();
-        axios.post('http://localhost:8080/api/book', {
+        const bookParams = {
             title: this.state.title,
             author: this.state.author,
             pages: this.state.pages,
@@ -26,9 +26,12 @@ state = {
             price: this.state.price,
             condition: this.state.condition,
             quantity: this.state.quantity
-        })
+        }
+
+        axios.post('http://localhost:8080/api/book', bookParams)
         .then((response)=>{
             console.log(response.status)
+            console.log(response.data)
         })
         .catch((erorr) => {
             console.log(erorr)
