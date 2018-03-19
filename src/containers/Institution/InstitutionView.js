@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
+import {Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 import SingleInstitutionCardComponent from '../../components/Institution/SingleInstitutionCardComponent'
 import BookListCardComponent from '../../components/Book/BookListCardComponent'
 import BooksTableListComponent from '../../components/Book/BookTableListComponent';
@@ -85,6 +88,7 @@ class InstitutionView extends Component {
     render() {
         return (<div>
             <div>{this.state.institution}</div>
+            <Link to={'/institution/:institutionId/add/book'}><Button bsSize="lg" bsStyle="info">Priskirti knygą</Button></Link>
             <div><BooksTableListComponent books={this.state.books} /></div>
         </div>)
     }

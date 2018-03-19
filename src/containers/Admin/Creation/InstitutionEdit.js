@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+
 import InstitutionCreationForm from '../Forms/InstitutionCreationForm';
 
 class InstitutionEdit extends Component {
@@ -10,7 +11,7 @@ class InstitutionEdit extends Component {
             image:'',
             category:'',
             libraryBookStoreType:'ADULT',
-            bookRentalType:'OLD_BOOKS',
+            bookRentalType:'USED_BOOKS',
             bookArchiveType:'PRIVATE',
             institutionType:'BOOKSTORE'
         }

@@ -3,19 +3,20 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-import BookListCardComponent from '../../components/Book/BookListCardComponent';
-import BookTableListComponent from '../../components/Book/BookTableListComponent';
-import '../Containers.css';
+import BookListCardComponent from '../../../components/Book/BookListCardComponent';
+import BookTableListComponent from '../../../components/Book/BookTableListComponent';
+import '../../Containers.css';
 
-class BookList extends Component {
+class InstitutionAddBook extends Component {
+    institutionId = this.props.institutionId;
     state = {
         books: ''
     }
     componentWillMount = () => {
-        this.getBooksFromInstitution()
+        this.getBooks()
     }
 
-    getBooksFromInstitution = () => {
+    getBooks = () => {
         axios.get('http://localhost:8080/api/book')
             .then((response) => {
                 this.setState({
@@ -28,11 +29,10 @@ class BookList extends Component {
             })
     }
 
-    deleteHandler = (bookId) => {
-        axios.delete('http://localhost:8080/api/book/' + bookId)
+    addHandler = (bookId) => {
+        axios.post('http://localhost:8080/api/institution/' + this.institutionId + '/book/' + bookId)
             .then((response) => {
                 console.log(response.status)
-                this.getBooksFromInstitution();
             })
             .catch((erorr) => {
                 console.log(erorr)
@@ -50,8 +50,8 @@ class BookList extends Component {
                 price={book.price}
                 condition={book.condition}
                 quantity={book.quantity}
-                basicList={true}
-                deleteHandler={this.deleteHandler}
+                basicList={false}
+                addHandler={this.addHandler}
             />
         )
     }
@@ -59,11 +59,8 @@ class BookList extends Component {
 
     render() {
         return (<div className='list'>
-            <Link to={'/books/create'}><Button bsSize="lg" bsStyle="info">Nauja knyga</Button></Link>
-            <br />
-            <br />
-            <BookTableListComponent deleteHandler={this.deleteHandler} books={this.state.books} /></div>)
+            <BookTableListComponent addHandler={this.addHandler} books={this.state.books} /></div>)
     }
 }
 
-export default BookList;
+export default InstitutionAddBook;

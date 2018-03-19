@@ -10,7 +10,7 @@ const BookListCardComponent = (props) => {
             <td>{props.pages}</td>
             <td>{props.condition}</td>
             <td>{props.quantity}</td>
-            <button className="btn btn-danger" onClick={() => props.deleteHandler(props.id)} >Pašalinti</button>
+            {props.basicList ? <button className="btn btn-danger" onClick={() => props.deleteHandler(props.id)} >Pašalinti</button> : <button className="btn btn-success" onClick={() => props.addHandler(props.id)} >Priskirti institucijai</button>}
         </tr>)
 }
 
