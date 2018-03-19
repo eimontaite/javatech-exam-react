@@ -12,7 +12,7 @@ class InstitutionCreation extends Component {
         image: '',
         category: '',
         libraryBookstoreType: 'ADULT',
-        rentalType: 'OLD_BOOKS',
+        rentalType: 'USED_BOOKS',
         archiveType: 'PRIVATE',
         institutionType: 'BOOKSTORE'
     }

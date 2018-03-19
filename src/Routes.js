@@ -22,7 +22,6 @@ class Routes extends Component {
                 <Route path="/institution/add/new" exact component={InstitutionCreation} />
     <Route exact path="/institution/:institutionId/edit" render={(props)=>{
     <InstitutionEdit institutionId={props.match.params.id} />}}/>
-                // <Route path="/institution/:institutionId/edit" exact component={InstitutionEdit} />
                 <Route path="/books" exact component={BookList} />
                 <Route path="/books/create" exact component={BookCreation} />
                 <Route exact path="/institution/:institutionId/add/book" render={(props)=>{
