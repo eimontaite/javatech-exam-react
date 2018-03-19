@@ -44,7 +44,7 @@ const InstitutionCreationForm = props => {
           <div className="form-group" >
             <label className="control-label" >Nuomojamos knygos:</label>
             <select onChange={props.fieldHandler} className="form-control" name="rentalType">
-              <option value='OLD_BOOKS'>Senos knygos</option>
+              <option value='USED_BOOKS'>Senos knygos</option>
               <option value='NEW_BOOKS'>Naujos knygos</option>
             </select>
           </div>
