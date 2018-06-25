@@ -7,19 +7,20 @@ import Aux from '../../hoc/Aux';
 import SingleInstitutionCardComponent from '../../components/Institution/SingleInstitutionCardComponent'
 import BookListCardComponent from '../../components/Book/BookListCardComponent'
 import BooksTableListComponent from '../../components/Book/BookTableListComponent';
+import InstitutionTableListComponent from "../../components/Institution/InstitutionsTableListComponent";
 
 class InstitutionView extends Component {
-    institutionId = this.props.institutionId;
+    institutionId = this.props.match.params.institutionId
     state = {
         institution: '',
         books: ''
     }
 
     componentWillMount = () => {
-        axios.get('http://localhost:8080/api/institution/' + this.institutionId)
+        axios.get('http://localhost:8080/api/institutions/' + this.institutionId)
             .then((response) => {
                 this.setState({
-                    institution: this.composeInstitution(response.data)
+                    institution: response.data
                 })
                 this.getBooksFromInstitution();
                 console.log(response.status)
@@ -31,7 +32,7 @@ class InstitutionView extends Component {
     }
 
     getBooksFromInstitution = () => {
-        axios.get('http://localhost:8080/api/institution/' + this.institutionId + '/book')
+        axios.get('http://localhost:8080/api/institutions/' + this.institutionId + '/book')
             .then((response) => {
                 this.setState({
                     books: response.data.map(this.composeBooks)
@@ -44,17 +45,17 @@ class InstitutionView extends Component {
 
     }
     deleteHandler = (bookId) => {
-        axios.delete('http://localhost:8080/api/institution/' + this.institutionId + '/book/' + bookId)
+        axios.delete('http://localhost:8080/api/institutions/' + this.institutionId + '/book/' + bookId)
             .then((response) => {
                 console.log(response.status)
                 this.getBooksFromInstitution();
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
 
-    composeBooks = (book, index) => {
+    composeBooks = (book) => {
         return (
             <BookListCardComponent
                 id={book.id}
@@ -71,26 +72,15 @@ class InstitutionView extends Component {
         )
     }
 
-
-    composeInstitution = (inst) => {
-        return (<SingleInstitutionCardComponent
-            id={inst.id}
-            title={inst.title}
-            city={inst.city}
-            image={inst.image}
-            category={inst.category}
-            libraryBookstoreType={inst.libraryBookStoreType}
-            rentalType={inst.rentalType}
-            archiveType={inst.archiveType}
-        />)
-    }
-
     render() {
         return (
         <Aux>
-            <div>{this.state.institution}</div>
-            {/* blocked updates will be the end of me. commenting this out, will think about it later */}
-            {/* <Link to={'/institution/' + this.props.institutionId + '/add/book'}><Button bsSize="lg" bsStyle="info">Priskirti knygą</Button></Link> */}
+            <div style={{textAlign:'center'}}>
+                <h3>Pavadinimas: {this.state.institution.title}</h3>
+                <h3>Miestas: {this.state.institution.city}</h3>
+                <h3>Kategorija: {this.state.institution.category}</h3>
+                <br/>
+            </div>
             <div><BooksTableListComponent books={this.state.books} /></div>
         </Aux>)
     }

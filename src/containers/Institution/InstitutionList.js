@@ -17,47 +17,47 @@ class InstitutionListContainer extends Component {
     }
 
     getAllInstitutions = () => {
-        axios.get('http://localhost:8080/api/institution')
+        axios.get('http://localhost:8080/api/institutions')
             .then((response) => {
                 this.setState({
                     institution: response.data.map(this.composeInstitution)
                 })
                 console.log(response.status)
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
     removeHandler = (institutionId) => {
-        axios.delete('http://localhost:8080/api/institution/' + institutionId)
+        axios.delete('http://localhost:8080/api/institutions/delete/' + institutionId)
             .then((response) => {
                 console.log(response.status)
                 this.getAllInstitutions()
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
 
-    composeInstitution = (inst, index) => {
+    composeInstitution = (institution, index) => {
         return (
             <InstitutionListCardComponent
                 key={index}
-                id={inst.id}
-                title={inst.title}
-                city={inst.city}
-                image={inst.image}
-                category={inst.category}
-                libraryBookstoreType={inst.libraryBookstoreType}
-                rentalType={inst.rentalType}
-                archiveType={inst.archiveType}
+                id={institution.id}
+                title={institution.title}
+                city={institution.city}
+                image={institution.image}
+                category={institution.category}
+                libraryBookstoreType={institution.libraryBookstoreType}
+                rentalType={institution.rentalType}
+                archiveType={institution.archiveType}
                 removeHandler={this.removeHandler}
             />)
     }
 
     render() {
         return (<div className='list'>
-            <Link to={'/institution/add/new'}><Button bsSize="lg" bsStyle="info">Nauja institucija</Button></Link>
+            <Link to={'/institutions/add/new'}><Button bsSize="lg" bsStyle="info">Nauja institucija</Button></Link>
             <br />
             <br />
             <InstitutionTableListComponent institution={this.state.institution} /></div>)

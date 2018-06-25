@@ -13,8 +13,8 @@ const InstitutionListCardComponent = (props) => {
             <td>{props.libraryBookstoreType}</td>
             <td>{props.rentalType}</td>
             <td>{props.archiveType}</td>
-            <td><Link to={'/institution/' + props.id + '/edit'} className='btn btn-primary'>Redaguoti</Link></td>
-            <td><Link to={'/institution/' + props.id} className='btn btn-success'>Detaliau</Link></td>
+            <td><Link to={'/institutions/' + props.id + '/edit'} className='btn btn-primary'>Redaguoti</Link></td>
+            <td><Link to={'/institutions/' + props.id} className='btn btn-success'>Detaliau</Link></td>
             <td><button onClick={() => props.removeHandler(props.id)} className='btn btn-danger'>Pašalinti</button></td>
         </tr>
     )

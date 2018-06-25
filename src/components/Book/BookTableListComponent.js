@@ -13,6 +13,7 @@ const BooksTableListComponent = (props) => {
                     <th>Puslapių skaičius</th>
                     <th>Būklė</th>
                     <th>Kiekis</th>
+                    <th>Institucijos</th>
                     {/* <th>OTHER</th> */}
                 </tr>
             </thead>

@@ -34,15 +34,16 @@ class InstitutionCreation extends Component {
             rentalType: this.state.rentalType,
             archiveType: this.state.archiveType
         }
-        axios.post('http://localhost:8080/api/institution', institutionParams)
+        axios.post('http://localhost:8080/api/institutions', institutionParams)
             .then((response) => {
                 console.log(response.status)
                 this.setState({
                     number: '',
                 })
+                this.props.history.push('/institutions')
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
 

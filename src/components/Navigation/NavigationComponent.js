@@ -15,10 +15,6 @@ titleHandler = (e) =>{
   })
 }
 
-
-
-
-
   render(){
     return (<div>
         <nav className="navbar navbar-default">

@@ -17,25 +17,26 @@ class InstitutionAddBook extends Component {
     }
 
     getBooks = () => {
-        axios.get('http://localhost:8080/api/book')
+        axios.get('http://localhost:8080/api/books')
             .then((response) => {
                 this.setState({
                     books: response.data.map(this.composeBooks)
                 })
                 console.log(response.status)
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
 
     addHandler = (bookId) => {
-        axios.post('http://localhost:8080/api/institution/' + this.institutionId + '/book/' + bookId)
+        axios.post('http://localhost:8080/api/institutions/' + this.institutionId + '/book/' + bookId)
             .then((response) => {
                 console.log(response.status)
+                this.props.history.push('/books')
             })
-            .catch((erorr) => {
-                console.log(erorr)
+            .catch((error) => {
+                console.log(error)
             })
     }
 
