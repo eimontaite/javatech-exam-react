@@ -28,7 +28,7 @@ state = {
             .then((response) => {
                 this.setState({
                     institutions: response.data.map(institution => {
-                        return institution.title;
+                        return institution.id;
                     })
                 })
                 console.log(response.status)
@@ -56,6 +56,7 @@ state = {
         .then((response)=>{
             console.log(response.status)
             console.log(response.data)
+            console.log(bookParams.institution)
             this.props.history.push('/books')
         })
         .catch((error) => {
@@ -73,13 +74,12 @@ state = {
         this.setState({
             institution: value
         });
-        console.log("Pasirinkta: " + this.state.institution)
     }
     render(){
     console.log(this.state.institutions)
         let institutions = this.state.institutions;
         let dropdown =  institutions.map(institution =>
-            <option key = {institution}>{institution}</option>)
+            <option key = {institution.id}>{institution}</option>)
         return(
 
             <Aux>
